@@ -38,3 +38,12 @@ s3.Object(bucket_name,file1).put(Body=open(file2,'rb'))
 
 body = s3.Object(bucket_name,file1).get()["Body"].read()
 print(body)
+
+# Delete the file from bucket
+s3.Object(bucket_name,file1).delete()
+print(f"'{file1}' file is deleted")
+
+# DELETE the bucket 
+bucket = s3.Bucket(bucket_name)
+bucket.delete()
+print(f"'{bucket_name}' bucket is deleted")
